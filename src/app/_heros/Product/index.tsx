@@ -32,35 +32,33 @@ export const ProductHero: React.FC<{
       </div>
       <div className={classes.details}>
         <h3 className={classes.title}>{title}</h3>
-      </div>
-      <div className={classes.categories}>
-        {categories?.map((category, index) => {
-          const { title: categoryTitle } = category
+        <div className={classes.categoryWrapper}>
+          <div className={classes.categories}>
+            {categories?.map((category, index) => {
+              const { title: categoryTitle } = category
 
-          const titleToUse = categoryTitle || 'Untitled category'
+              const titleToUse = categoryTitle || 'Untitled category'
 
-          const isLast = index === categories.length - 1
+              const isLast = index === categories.length - 1
 
-          return (
-            <Fragment key={index}>
-              {titleToUse}
-              {!isLast && <Fragment>, &nbsp;</Fragment>}
-            </Fragment>
-          )
-        })}
+              return (
+                <p key={index} className={classes.category}>
+                  {titleToUse}
+                  {!isLast && <Fragment>, &nbsp;</Fragment>}{' '}
+                  <span className={classes.seperator}>|&nbsp;</span>
+                </p>
+              )
+            })}
+          </div>
+          <p className={classes.stock}> In stock</p>
+        </div>
+        <Price product={product} button={false} />
+        <div className={classes.description}>
+          <h6>Description</h6>
+          <p>{description}</p>
+        </div>
+        <AddToCartButton product={product} className={classes.addToCartButton} />
       </div>
-      <h1 className={classes.title}>{title}</h1>
-      <div>
-        <p className={classes.description}>
-          {`${description ? `${description} ` : ''}To edit this product, `}
-          <Link href={`${process.env.NEXT_PUBLIC_SERVER_URL}/admin/collections/products/${id}`}>
-            navigate to the admin dashboard
-          </Link>
-          {'.'}
-        </p>
-      </div>
-      <Price product={product} button={false} />
-      <AddToCartButton product={product} className={classes.addToCartButton} />
     </Gutter>
   )
 }
