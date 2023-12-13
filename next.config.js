@@ -3,7 +3,6 @@ const ContentSecurityPolicy = require('./csp')
 const redirects = require('./redirects')
 
 const nextConfig = {
-  webpack5: true,
   typescript: {
     ignoreBuildErrors: true,
   },

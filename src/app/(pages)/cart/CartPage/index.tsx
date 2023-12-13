@@ -12,9 +12,9 @@ import { Price } from '../../../_components/Price'
 import { RemoveFromCartButton } from '../../../_components/RemoveFromCartButton'
 import { useAuth } from '../../../_providers/Auth'
 import { useCart } from '../../../_providers/Cart'
+import CartItem from '../CartItem'
 
 import classes from './index.module.scss'
-import CartItem from '../CartItem'
 
 export const CartPage: React.FC<{
   settings: Settings
@@ -56,7 +56,7 @@ export const CartPage: React.FC<{
             </div>
           ) : (
             <div className={classes.cartWrapper}>
-              <div className="">
+              <div>
                 {/* CART LIST HEADER */}
                 <div className={classes.header}>
                   <p>Products</p>
@@ -95,18 +95,22 @@ export const CartPage: React.FC<{
                   })}
                 </ul>
               </div>
+
               <div className={classes.summary}>
                 <div className={classes.row}>
                   <h6 className={classes.cartTotal}>Summary</h6>
                 </div>
+
                 <div className={classes.row}>
                   <p className={classes.cartTotal}>Delivery Charge</p>
                   <p className={classes.cartTotal}>$0</p>
                 </div>
+
                 <div className={classes.row}>
                   <p className={classes.cartTotal}>Grand Total</p>
                   <p className={classes.cartTotal}>{cartTotal.formatted}</p>
                 </div>
+
                 <Button
                   className={classes.checkoutButton}
                   href={user ? '/checkout' : '/login?redirect=%2Fcheckout'}

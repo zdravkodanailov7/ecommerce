@@ -63,7 +63,7 @@ const CreateAccountForm: React.FC = () => {
         await login(data)
         clearTimeout(timer)
         if (redirect) router.push(redirect as string)
-        else router.push('/')
+        else router.push(`/`)
         window.location.href = '/'
       } catch (_) {
         clearTimeout(timer)
@@ -91,10 +91,10 @@ const CreateAccountForm: React.FC = () => {
       />
       <Input
         name="name"
-        label="Full Name"
+        label="Full name"
         required
         register={register}
-        error={errors.email}
+        error={errors.name}
         type="text"
       />
       <Input
@@ -116,7 +116,7 @@ const CreateAccountForm: React.FC = () => {
       />
       <Button
         type="submit"
-        label={loading ? 'Processing' : 'Sign Up'}
+        label={loading ? 'Processing' : 'Sign up'}
         disabled={loading}
         appearance="primary"
         className={classes.submit}

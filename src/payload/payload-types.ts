@@ -171,6 +171,32 @@ export interface Media {
   filesize?: number;
   width?: number;
   height?: number;
+  sizes?: {
+    thumbnail?: {
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
+    card?: {
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
+    tablet?: {
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
+  };
 }
 export interface Category {
   id: string;
@@ -495,7 +521,7 @@ export interface Header {
 }
 export interface Footer {
   id: string;
-  copyright: string;
+  copyright?: string;
   navItems?: {
     link: {
       type?: 'reference' | 'custom';
